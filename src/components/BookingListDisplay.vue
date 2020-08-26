@@ -64,18 +64,6 @@ const {
 } = createNamespacedHelpers("bookingModule");
 
 export default {
-  created() {
-    this.$store
-      .dispatch("bookingModule/fetchAsync", { self: this })
-      .then(
-        (response) => {
-          console.log("fetched");
-        },
-        (error) => {
-          console.error("not fetched");
-        }
-      );
-  },
   computed: {
     ...bookingState({
       bookings: (state) => state.bookings,

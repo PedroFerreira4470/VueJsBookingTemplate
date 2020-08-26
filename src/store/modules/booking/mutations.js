@@ -6,6 +6,12 @@ export const mutations = {
   FETCH_BOOKINGS(state, bookings) {
     state.bookings = bookings
   },
+  SET_SELECTED_BOOKINGS(state,bookingSelected){
+    state.selectedBooking = bookingSelected
+  },
+  REMOVE_SELECTED_BOOKINGS(state){
+    state.selectedBooking = null
+  },
   SAVE_BOOKING (state, booking) {
     const index = state.bookings.findIndex(p => p.id === booking.id)
     if (index === -1) {
@@ -18,8 +24,5 @@ export const mutations = {
     const index = state.bookings.findIndex(p => p.id === booking.id)
     state.bookings.splice(index, 1)
   },
-  SELECT_BOOKING (state, bookingSelected) {
-    state.selectedBooking = bookingSelected
-  }
 
 }

@@ -4,7 +4,11 @@ export default {
   async getBookings () {
     return (await api.get('/bookings')).data
   },
+  async getBooking (bookingid) {
+    return (await api.get(`/bookingsDetail/${bookingid}`)).data
+  },
   async deleteBooking (booking) {
     return await api.delete(`/bookings/${booking.id}`)
   }
+
 }

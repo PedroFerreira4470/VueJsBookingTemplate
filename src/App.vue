@@ -12,7 +12,19 @@ export default {
   components: {
     AppContent,
     AppSidebar
-  }
+  },
+    created() {
+    this.$store
+      .dispatch("bookingModule/fetchAsync", { self: this })
+      .then(
+        (response) => {
+          console.log("fetched");
+        },
+        (error) => {
+          console.error("not fetched");
+        }
+      );
+  },
 }
 </script>
 

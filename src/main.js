@@ -6,9 +6,9 @@ import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faBook, faDollyFlatbed, faHome, faPlane, faInfoCircle, faPlusCircle, faBookOpen } from '@fortawesome/free-solid-svg-icons'
+import { faBook, faDollyFlatbed, faHome, faPlane, faInfoCircle, faPlusCircle, faBookOpen,faSpinner } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-library.add(faBook, faDollyFlatbed, faHome, faPlane, faInfoCircle, faPlusCircle, faBookOpen)
+library.add(faBook, faDollyFlatbed, faHome, faPlane, faInfoCircle, faPlusCircle, faBookOpen,faSpinner)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 

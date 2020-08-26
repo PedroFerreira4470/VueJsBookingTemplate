@@ -97,6 +97,10 @@ a:focus {
 /* =======================================
                START  Layout
 ================================== */
+.center {
+  top: 50%;
+  left: 50%;
+}
 
 .bg-darkBlue {
   background-color:#2a4e74 
