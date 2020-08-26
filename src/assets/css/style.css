@@ -1,0 +1,200 @@
+:root {
+  --main-background-color: #ffffff;
+  --main-font: 'Ubuntu', sans-serif;
+  --main-color-body: black;
+  --main-font-bold: 700;
+  --main-header-background: linear-gradient(#f8f8f8 85%, #ffffff 100%);
+  --main-title-color: #143774;
+  --main-title-font: 'Lora', serif;
+  --main-link-color: #1792d2;
+  --main-border-color: #efefef;
+}
+
+.darkmode {
+  --main-background-color: #1a1919;
+  --main-font: 'Ubuntu', sans-serif;
+  --main-color-body: white;
+  --main-font-bold: 700;
+  --main-header-background: linear-gradient(#222222 85%, #1a1919 100%);
+  --main-title-color: #204283;
+  --main-title-font: 'Lora', serif;
+  --main-link-color: #68bbe7;
+  --main-border-color: #474747;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--main-font);
+  line-height: 1.6;
+  font-size: 1.125rem;
+  font-weight: 300;
+  background-color: var(--main-background-color);
+  color: var(--main-color-body);
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.image-full {
+  max-height: 300px;
+  width: 100%;
+  object-fit: cover;
+  margin-bottom: 2em;
+}
+
+/* =============================
+        START Typography
+===========================*/
+
+h1,
+h2,
+h3 {
+  font-family: var(--main-title-font);
+  font-weight: 400;
+  color: var(--main-title-color);
+  margin-top: 0;
+}
+
+h1 {
+  font-weight: 400;
+  font-size: 2rem;
+  margin: 0;
+}
+
+h3 {
+  color: var(--main-link-color);
+}
+
+strong {
+  font-weight: 800;
+}
+
+hr {
+  margin:0 !important /*override bootstrap*/
+}
+
+a {
+  color: var(--main-link-color);
+}
+
+a:hover,
+a:focus {
+  color: var(--main-title-color);
+}
+
+/*  =======================================
+            END Typography
+========================================== */
+
+/* =======================================
+               START  Layout
+================================== */
+
+.bg-darkBlue {
+  background-color:#2a4e74 
+}
+
+.wrapper a{
+  color:#bdb8d7;
+  text-decoration:  none !important;
+  list-style: none;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.wrapper{
+  display: flex;
+  position: relative;
+}
+
+.wrapper .sidebar{
+  overflow: hidden;
+  width: 200px;
+  height: 100%;
+  background: #285f8c;
+  padding: 30px 0px;
+  position: fixed;
+}
+
+.wrapper .sidebar h2{
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.wrapper a:hover{
+  color: #fff;
+}
+
+.wrapper .sidebar ul li{
+  padding: none;
+  border-bottom: 1px solid #bdb8d7;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-top: 1px solid rgba(255,255,255,0.05);
+}    
+
+.wrapper .sidebar ul li a{
+  color: #bdb8d7;
+  display: block;
+  padding: 15px;
+}
+
+.wrapper .sidebar ul li a .fas{
+  width: 25px;
+}
+
+.wrapper .sidebar ul li:hover{
+  background-color: #63a0d180;
+}
+    
+.wrapper .sidebar ul li:hover a{
+  color: #fff;
+}
+ 
+
+.wrapper .main_content{
+  padding: 1em;
+  width: 100%;
+  margin-left: 200px;
+}
+
+.wrapper .main_content .header{
+  padding: 20px;
+  background: #fff;
+  color: #717171;
+  border-bottom: 1px solid #e0e4e8;
+}
+
+.wrapper .main_content .info{
+  margin: 20px;
+  color: #717171;
+  line-height: 25px;
+}
+
+.wrapper .main_content .info div{
+  margin-bottom: 20px;
+}
+
+
+@media (max-width: 500px){
+  .wrapper .sidebar{
+    width: 100px;
+  }
+  .wrapper .main_content{
+    margin-left: 100px;
+  }
+}
+/* =======================================
+               END  Layout
+================================== */
+
+
+
