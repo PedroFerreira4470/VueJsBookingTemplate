@@ -1,4 +1,4 @@
 export const state = () => ({
   bookings: [],
-  selectedBooking: null,
+  selectedBooking: null
 })

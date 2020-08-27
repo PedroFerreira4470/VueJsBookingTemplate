@@ -7,8 +7,8 @@
 
 <script>
 export default {
-    props: {
-        spinningTitle: String
-    }
+  props: {
+    spinningTitle: String
+  }
 }
 </script>

@@ -13,18 +13,15 @@ export default {
     AppContent,
     AppSidebar
   },
-    created() {
+  created () {
     this.$store
-      .dispatch("bookingModule/fetchAsync", { self: this })
+      .dispatch('bookingModule/fetchAsync', { self: this })
       .then(
         (response) => {
-          console.log("fetched");
-        },
-        (error) => {
-          console.error("not fetched");
+          console.log('fetched')
         }
-      );
-  },
+      )
+  }
 }
 </script>
 

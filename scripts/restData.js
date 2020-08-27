@@ -5,40 +5,6 @@ module.exports = function() {
         id: 1,
         bookingNumber: "20013555426",
         client: "Garland",
-        origin: "Porto",
-        destination: "Madrid",
-        createdBy: { firstName: "Pedro", lastName: "Ferreira" }
-      },
-      {
-        id: 2,
-        bookingNumber: "11938685432",
-        client: "Client2",
-        origin: "Lisboa",
-        destination: "Porto",
-        createdBy: { firstName: "Joao", lastName: "Silva" }
-      },
-      {
-        id: 3,
-        bookingNumber: "11934554436",
-        client: "Client Teste 1",
-        origin: "Algarve",
-        destination: "Lisboa",
-        createdBy: { firstName: "Bruno", lastName: "Silveira" }
-      },
-      {
-        id: 4,
-        bookingNumber: "11923444095",
-        client: "Trin",
-        origin: "Madrid",
-        destination: "Algarve",
-        createdBy: { firstName: "Fabio", lastName: "Pacheco" }
-      }
-    ],
-    bookingsDetail: [
-      {
-        id: 1,
-        bookingNumber: "20013555426",
-        client: "Garland",
         locations: {
           origin: "Porto",
           destination: "Madrid"
@@ -80,7 +46,7 @@ module.exports = function() {
       {
         id: 4,
         bookingNumber: "11923444095",
-        client: "Trin",
+        client: "Trimasd",
         locations: {
           origin: "Madrid",
           destination: "Algarve",
@@ -91,7 +57,24 @@ module.exports = function() {
         },
         createdBy: { firstName: "Fabio", lastName: "Pacheco" }
       }
-    ]
+    ],
+    clientsLookup: [
+      {id: 1, name:"Garland"},
+      {id: 2, name:"Client2"},
+      {id: 3, name:"Client Teste 1"},
+      {id: 4, name:"Trimasd"},
+    ],
+    airportsLookup: [
+      {id: 1, name:"Porto Sá Carneiro"},
+      {id: 2, name:"Aeroporto de Madrid"},
+    ],
+    locationsLookup: [
+      {id: 1, name:"Madrid"},
+      {id: 2, name:"Algarve"},
+      {id: 3, name:"Lisboa"},
+      {id: 4, name:"Porto"},
+    ],
+
   };
   return data;
 };

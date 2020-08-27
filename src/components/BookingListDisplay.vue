@@ -15,8 +15,8 @@
           <td>{{ booking.id }}</td>
           <td>{{ booking.bookingNumber }}</td>
           <td>{{ booking.client }}</td>
-          <td>{{ booking.origin }}</td>
-          <td>{{ booking.destination }}</td>
+          <td>{{ booking.locations.origin }}</td>
+          <td>{{ booking.locations.destination }}</td>
           <td>{{ fullName(booking.createdBy) }}</td>
           <td>
             <router-link
@@ -55,29 +55,28 @@
 </template>
 
 <script>
-import { createNamespacedHelpers } from "vuex";
+import { createNamespacedHelpers } from 'vuex'
 
 const {
   mapState: bookingState,
-  mapGetters: bookingGetters,
-  mapActions: bookingActions,
-} = createNamespacedHelpers("bookingModule");
+  mapActions: bookingActions
+} = createNamespacedHelpers('bookingModule')
 
 export default {
   computed: {
     ...bookingState({
-      bookings: (state) => state.bookings,
-    }),
+      bookings: (state) => state.bookings
+    })
   },
   methods: {
     ...bookingActions({
-      deleteBooking: "deleteAsync",
+      deleteBooking: 'deleteAsync'
     }),
-    fullName(param) {
-      return `${param.firstName} ${param.lastName}`;
-    },
-  },
-};
+    fullName (param) {
+      return `${param.firstName} ${param.lastName}`
+    }
+  }
+}
 </script>
 
 //state
@@ -86,7 +85,6 @@ export default {
 //this.$store.getters['bookingModule/getOrderedBookingsByClient']
 //action
 //this.$store.dispatch('bookingModule/deleteAsync', booking)
-
 
 // deleteBooking (booking) {
 //   return this.$store.dispatch('bookingModule/deleteAsync', booking)
@@ -97,7 +95,6 @@ export default {
 // bookings () {
 //   return this.$store.getters['bookingModule/getOrderedBookingsByClient']
 // }
-
 
 // processBookings(newBookings) {
     //  this.bookings.splice(0)

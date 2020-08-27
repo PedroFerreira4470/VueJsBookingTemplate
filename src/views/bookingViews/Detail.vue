@@ -61,36 +61,28 @@ export default {
     loading
   },
   computed: {
-    booking() {
-      return this.$store.state.bookingModule.selectedBooking;
-    },
-  },
-  created() {
-    setTimeout(() => {
-      this.$store
-        .dispatch("bookingModule/selectedBooking", this.$route.params.id)
-        .then(
-          (response) => {
-            console.log("get booking");
-          },
-          (error) => {
-            console.error("no booking");
-          }
-        );
-    }, 1000);
-  },
-  methods: {
-    fullName(param) {
-      return `${param.firstName} ${param.lastName}`;
-    },
-    getNow() {
-        return new Date();
+    booking () {
+      return this.$store.state.bookingModule.selectedBooking
     }
   },
-  beforeDestroy() {
-    this.$store.dispatch("bookingModule/removeselectedBookingAsync");
+  created () {
+    setTimeout(() => {
+      this.$store
+        .dispatch('bookingModule/selectedBooking', this.$route.params.id)
+    }, 1000)
   },
-};
+  methods: {
+    fullName (param) {
+      return `${param.firstName} ${param.lastName}`
+    },
+    getNow () {
+      return new Date()
+    }
+  },
+  beforeDestroy () {
+    this.$store.dispatch('bookingModule/removeselectedBookingAsync')
+  }
+}
 </script>
 
 <style scoped>

@@ -8,7 +8,7 @@ export const getOrderedBookingsByClient = (state, getters, rootState, rootGetter
   function compare (obj1, obj2) {
     const a = obj1.toUpperCase()
     const b = obj2.toUpperCase()
-  
+
     if (a > b) {
       return 1
     } else if (a < b) {
