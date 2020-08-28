@@ -9,10 +9,12 @@ module.exports = function() {
           origin: "Porto",
           destination: "Madrid"
         },
-        airports:{
-          origin:"Porto Sá Carneiro",
-          destination:"Aeroporto de Madrid",
+        airports: {
+          origin: "Porto Sá Carneiro",
+          destination: "Aeroporto de Madrid"
         },
+        shipments: null,
+        cargo: null,
         createdBy: { firstName: "Pedro", lastName: "Ferreira" }
       },
       {
@@ -23,10 +25,12 @@ module.exports = function() {
           origin: "Lisboa",
           destination: "Porto"
         },
-        airports:{
-          origin:"Porto Sá Carneiro",
-          destination:"Aeroporto de Madrid",
+        airports: {
+          origin: "Porto Sá Carneiro",
+          destination: "Aeroporto de Madrid"
         },
+        shipments: null,
+        cargo: null,
         createdBy: { firstName: "Joao", lastName: "Silva" }
       },
       {
@@ -37,10 +41,12 @@ module.exports = function() {
           origin: "Algarve",
           destination: "Lisboa"
         },
-        airports:{
-          origin:"Porto Sá Carneiro",
-          destination:"Aeroporto de Madrid",
+        airports: {
+          origin: "Porto Sá Carneiro",
+          destination: "Aeroporto de Madrid"
         },
+        shipments: null,
+        cargo: null,
         createdBy: { firstName: "Bruno", lastName: "Silveira" }
       },
       {
@@ -49,32 +55,33 @@ module.exports = function() {
         client: "Trimasd",
         locations: {
           origin: "Madrid",
-          destination: "Algarve",
+          destination: "Algarve"
         },
-        airports:{
-          origin:"Porto Sá Carneiro",
-          destination:"Aeroporto de Madrid",
+        airports: {
+          origin: "Porto Sá Carneiro",
+          destination: "Aeroporto de Madrid"
         },
+        shipments: null,
+        cargo: null,
         createdBy: { firstName: "Fabio", lastName: "Pacheco" }
       }
     ],
     clientsLookup: [
-      {id: 1, name:"Garland"},
-      {id: 2, name:"Client2"},
-      {id: 3, name:"Client Teste 1"},
-      {id: 4, name:"Trimasd"},
+      { id: 1, name: "Garland" },
+      { id: 2, name: "Client2" },
+      { id: 3, name: "Client Teste 1" },
+      { id: 4, name: "Trimasd" }
     ],
     airportsLookup: [
-      {id: 1, name:"Porto Sá Carneiro"},
-      {id: 2, name:"Aeroporto de Madrid"},
+      { id: 1, name: "Porto Sá Carneiro" },
+      { id: 2, name: "Aeroporto de Madrid" }
     ],
     locationsLookup: [
-      {id: 1, name:"Madrid"},
-      {id: 2, name:"Algarve"},
-      {id: 3, name:"Lisboa"},
-      {id: 4, name:"Porto"},
-    ],
-
+      { id: 1, name: "Madrid" },
+      { id: 2, name: "Algarve" },
+      { id: 3, name: "Lisboa" },
+      { id: 4, name: "Porto" }
+    ]
   };
   return data;
 };

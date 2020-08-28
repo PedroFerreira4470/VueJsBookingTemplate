@@ -10,6 +10,9 @@ export default {
   async postBooking (booking) {
     return (await api.post('/bookings', booking))
   },
+  async putBooking (booking) {
+    return (await api.put(`/bookings/${booking.id}`, booking))
+  },
   async deleteBooking (booking) {
     return await api.delete(`/bookings/${booking.id}`)
   }

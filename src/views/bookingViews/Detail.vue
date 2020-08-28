@@ -1,16 +1,34 @@
 <template>
   <div>
     <div v-if="booking === null">
-        <loading spinningTitle="Loading Booking Details..."></loading>
+      <loading spinningTitle="Loading Booking Details..."></loading>
     </div>
     <div v-else>
       <div class="row">
         <div class="col-sm-12">
-          <div class="card ">
+          <div class="card">
             <h3 class="card-header">Booking Number: {{booking.bookingNumber}}</h3>
             <div class="card-body col-12">
-              <div class="card-group">
-                <div class="card text-white bg-primary mb-3">
+              <div class="mb-4">
+                <router-link
+                  tag="button"
+                  type="button"
+                  class="btn btn-info"
+                  v-bind:to="`/booking/edit/${booking.id}`"
+                >
+                  <font-awesome-icon :icon="['fas', 'cog']"></font-awesome-icon> Edit Booking
+                </router-link>
+                <button type="button" class="btn btn-info ml-3">
+                  <font-awesome-icon :icon="['fas', 'cog']"></font-awesome-icon>
+                  {{booking.shipments ? "Edit" : "Create"}} Shipments
+                </button>
+                <button type="button" class="btn btn-info ml-3">
+                  <font-awesome-icon :icon="['fas', 'cog']"></font-awesome-icon>
+                  {{booking.cargo ? "Edit" : "Create"}} Cargo
+                </button>
+              </div>
+              <div class="card-columns">
+                <div class="card text-white bg-primary">
                   <h5 class="card-header">Client</h5>
                   <div class="card-body">
                     <p class="card-text">Name: {{ booking.client }}</p>
@@ -18,7 +36,7 @@
                     <p class="card-text">More Information About Client. Goes here</p>
                   </div>
                 </div>
-                <div class="card text-white bg-secondary mb-3">
+                <div class="card text-white bg-secondary">
                   <h5 class="card-header">Locations</h5>
                   <div class="card-body">
                     <p class="card-text">Origin: {{booking.locations.origin}}</p>
@@ -28,7 +46,7 @@
                     <p class="card-text">More Information: Here</p>
                   </div>
                 </div>
-                <div class="card text-white bg-success mb-3">
+                <div class="card text-white bg-success">
                   <h5 class="card-header">Airports</h5>
                   <div class="card-body">
                     <p class="card-text">Origin: {{booking.airports.origin}}</p>
@@ -38,8 +56,20 @@
                     <p class="card-text">More Information: Here</p>
                   </div>
                 </div>
-                <div class="card text-white bg-dark mb-3">
-                  <h5 class="card-header">Created By </h5>
+                <div class="card text-white bg-success">
+                  <h5 class="card-header">Cargo</h5>
+                  <div class="card-body">
+                    <p class="card-text">No Cargo</p>
+                  </div>
+                </div>
+                <div class="card text-white bg-success">
+                  <h5 class="card-header">Shipments</h5>
+                  <div class="card-body">
+                    <p class="card-text">No shipments</p>
+                  </div>
+                </div>
+                <div class="card text-white bg-dark">
+                  <h5 class="card-header">Created By</h5>
                   <div class="card-body">
                     <p class="card-text">User: {{fullName(booking.createdBy)}}</p>
                     <p class="card-text">Date: {{getNow()}}</p>
@@ -55,34 +85,36 @@
 </template>
 
 <script>
-import loading from '../../components/Loading'
+import loading from "../../components/Loading";
 export default {
   components: {
-    loading
+    loading,
   },
   computed: {
-    booking () {
-      return this.$store.state.bookingModule.selectedBooking
-    }
+    booking() {
+      return this.$store.state.bookingModule.booking;
+    },
   },
-  created () {
+  created() {
     setTimeout(() => {
-      this.$store
-        .dispatch('bookingModule/selectedBooking', this.$route.params.id)
-    }, 1000)
+      this.$store.dispatch(
+        "bookingModule/selectedBooking",
+        this.$route.params.id
+      );
+    }, 1000);
   },
   methods: {
-    fullName (param) {
-      return `${param.firstName} ${param.lastName}`
+    fullName(param) {
+      return `${param.firstName} ${param.lastName}`;
     },
-    getNow () {
-      return new Date()
-    }
+    getNow() {
+      return new Date();
+    },
   },
-  beforeDestroy () {
-    this.$store.dispatch('bookingModule/removeselectedBookingAsync')
-  }
-}
+  beforeDestroy() {
+    this.$store.dispatch("bookingModule/removeSelectedBookingAsync");
+  },
+};
 </script>
 
 <style scoped>

@@ -47,7 +47,7 @@
           </td>
         </tr>
         <tr v-if="bookings.length === 0">
-          <td colspan="5" class="text-center">No data</td>
+          <td colspan="6" class="text-center">No data</td>
         </tr>
       </tbody>
     </table>
@@ -73,7 +73,8 @@ export default {
       deleteBooking: 'deleteAsync'
     }),
     fullName (param) {
-      return `${param.firstName} ${param.lastName}`
+        return `${param.firstName} ${param.lastName}`
+ 
     }
   }
 }

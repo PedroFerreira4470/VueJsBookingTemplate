@@ -1,6 +1,5 @@
 import Home from '../views/Home.vue'
 import BookingList from '../views/bookingViews/List.vue'
-import BookingCreate from '../views/bookingViews/Create.vue'
 import BookingDetail from '../views/bookingViews/Detail.vue'
 import BookingEdit from '../views/bookingViews/Edit.vue'
 
@@ -17,7 +16,6 @@ export default [
   {
     path: '/booking',
     name: 'Booking',
-    alias: ['/bookings'],
     component: BookingList,
     beforeEnter: (to, from, next) => {
       // ...Guard
@@ -27,8 +25,7 @@ export default [
   {
     path: '/booking/create',
     name: 'BookingCreate',
-    alias: ['/bookings/create'],
-    component: BookingCreate,
+    component: BookingEdit,
     beforeEnter: (to, from, next) => {
       // ...Guard
       next()
@@ -37,7 +34,6 @@ export default [
   {
     path: '/booking/detail/:id(\\d+)',
     name: 'BookingDetail',
-    alias: ['/bookings/details/:id(\\d+)', '/booking/details/:id(\\d+)'],
     component: BookingDetail,
     beforeEnter: (to, from, next) => {
       // ...Guard
@@ -47,7 +43,6 @@ export default [
   {
     path: '/booking/edit/:id(\\d+)',
     name: 'BookingEdit',
-    alias: ['/bookings/edit/:id(\\d+)', '/booking/edit/:id(\\d+)'],
     component: BookingEdit,
     beforeEnter: (to, from, next) => {
       // ...Guard

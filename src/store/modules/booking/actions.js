@@ -15,6 +15,10 @@ export const selectedBooking = async (
   commit('SET_SELECTED_BOOKINGS', booking)
 }
 
+export const getBookingById = async ({ dispatch, commit, getters, rootGetters },bookingId) => {
+  return await bookingApi.getBooking(bookingId)
+}
+
 export const postBookingAsync = async (
   { dispatch, commit, getters, rootGetters },
   booking
@@ -24,7 +28,7 @@ export const postBookingAsync = async (
     bookingApi
       .postBooking(booking)
       .then(response => {
-        commit('POST_BOOKING', response.data)
+        commit('SAVE_BOOKING', response.data)
         resolve(response)
       })
       .catch(error => {
@@ -34,7 +38,25 @@ export const postBookingAsync = async (
   })
 }
 
-export const removeselectedBookingAsync = async ({
+export const putBookingAsync = async (
+  { dispatch, commit, getters, rootGetters },
+  booking
+) => {
+  return new Promise((resolve, reject) => {
+    bookingApi
+      .putBooking(booking)
+      .then(response => {
+        commit('SAVE_BOOKING', booking)
+        resolve(response)
+      })
+      .catch(error => {
+        console.log(error)
+        reject(error.response.data.errors)
+      })
+  })
+}
+
+export const removeSelectedBookingAsync = async ({
   dispatch,
   commit,
   getters,

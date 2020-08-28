@@ -2,6 +2,10 @@ export const getBookings = (state, getters, rootState, rootGetters) => {
   return state.bookings
 }
 
+export const getBooking = (state, getters, rootState, rootGetters) => {
+  return state.booking
+}
+
 export const getOrderedBookingsByClient = (state, getters, rootState, rootGetters) => {
   return state.bookings.concat().sort((bk1, bk2) => compare(bk1.client, bk2.client))
 
