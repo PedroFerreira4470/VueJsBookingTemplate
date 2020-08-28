@@ -15,7 +15,7 @@ export const selectedBooking = async (
   commit('SET_SELECTED_BOOKINGS', booking)
 }
 
-export const getBookingById = async ({ dispatch, commit, getters, rootGetters },bookingId) => {
+export const getBookingById = async ({ dispatch, commit, getters, rootGetters }, bookingId) => {
   return await bookingApi.getBooking(bookingId)
 }
 

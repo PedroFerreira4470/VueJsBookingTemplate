@@ -1,11 +1,15 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import BasicRoutes from './basicRoutes'
+import BookingRoutes from './bookingRoutes'
+import CargoRoutes from './cargoRoutes'
 
 Vue.use(VueRouter)
 
 const routes = [
-  ...BasicRoutes
+  ...BasicRoutes,
+  ...BookingRoutes,
+  ...CargoRoutes
 ]
 
 const router = new VueRouter({

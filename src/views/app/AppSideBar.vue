@@ -2,7 +2,7 @@
   <div class="sidebar">
     <h2>
       <router-link to="/">
-        <font-awesome-icon :icon="['fas', 'plane']" :transform="{ rotate: 42 }"></font-awesome-icon>Aerial
+        <font-awesome-icon :icon="['fas', 'plane']" :transform="{ rotate: 42 }"></font-awesome-icon>K2
       </router-link>
     </h2>
     <ul>
@@ -52,7 +52,7 @@
 </template>
 
 <script>
-export default {};
+export default {}
 </script>
 
 <style scoped>

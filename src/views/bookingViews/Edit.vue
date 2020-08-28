@@ -104,37 +104,36 @@
 </template>
 
 <script>
-import lookupApi from "../../../src/api/lookupAPI";
-import loading from "../../components/Loading";
-import Vue from "vue";
+import lookupApi from '../../../src/api/lookupAPI'
+import loading from '../../components/Loading'
 
-function getInitialForm() {
+function getInitialForm () {
   return {
     id: null,
     bookingNumber: null,
     client: null,
     locations: {
       origin: null,
-      destination: null,
+      destination: null
     },
     airports: {
       origin: null,
-      destination: null,
+      destination: null
     },
-    createdBy: { firstName: "Pedro", lastName: "Ferreira" },
-  };
+    createdBy: { firstName: 'Pedro', lastName: 'Ferreira' }
+  }
 }
 
 export default {
   components: {
-    loading,
+    loading
   },
-  async created() {
-    this.setupClientsLookup();
-    this.setupLocationsLookup();
-    this.setupAirportsLookup();
+  async created () {
+    this.setupClientsLookup()
+    this.setupLocationsLookup()
+    this.setupAirportsLookup()
   },
-  data() {
+  data () {
     return {
       loadingSubmitForm: false,
       editing: false,
@@ -144,106 +143,108 @@ export default {
       clientsLookup: [],
       airportsLookup: [],
       locationsLookup: [],
-      errors: [],
-    };
+      errors: []
+    }
   },
   computed: {
-    submitText() {
-      let  submitText = this.editing ? "Edit Booking" : "Create Booking"
-      if(this.loadingSubmitForm){
-          return submitText + "..."
-      }else{
-         return submitText
+    submitText () {
+      const submitText = this.editing ? 'Edit Booking' : 'Create Booking'
+      if (this.loadingSubmitForm) {
+        return submitText + '...'
+      } else {
+        return submitText
       }
-    },
+    }
   },
   methods: {
-    checkForm(e) {
-      this.loadingSubmitForm = true;
-      this.errors = [];
+    checkForm (e) {
+      this.loadingSubmitForm = true
+      this.errors = []
       if (!this.form.client) {
-        this.errors.push("Client required.");
+        this.errors.push('Client required.')
       }
       if (!this.form.locations.origin) {
-        this.errors.push("Locations origin required.");
+        this.errors.push('Locations origin required.')
       }
       if (!this.form.locations.destination) {
-        this.errors.push("Locations destination required.");
+        this.errors.push('Locations destination required.')
       }
       if (!this.form.airports.origin) {
-        this.errors.push("Airports origin required.");
+        this.errors.push('Airports origin required.')
       }
       if (!this.form.airports.destination) {
-        this.errors.push("Airports destination  required.");
+        this.errors.push('Airports destination  required.')
       }
 
       if (this.errors.length === 0) {
-        let moduleAction = 'bookingModule/postBookingAsync';
-        if("id" in this.$route.params){
+        let moduleAction = 'bookingModule/postBookingAsync'
+        if ('id' in this.$route.params) {
           moduleAction = 'bookingModule/putBookingAsync'
         }
         setTimeout(() => {
           this.$store
             .dispatch(moduleAction, this.form)
             .then((response) => {
-              console.log(response);
-              const booking = response.data;
-              this.$router.push(`/booking/detail/${booking.id}`);
+              console.log(response)
+              const booking = response.data
+              this.$router.push(`/booking/detail/${booking.id}`)
             })
             .catch((error) => {
-              console.log(error);
-              alert("error");
+              console.log(error)
+              alert('error')
             })
             .finally(() => {
-              this.loadingSubmitForm = false;
-            });
-        }, 1500);
+              this.loadingSubmitForm = false
+            })
+        }, 1500)
+      } else {
+        this.loadingSubmitForm = false
       }
     },
-    getBooking() {
+    getBooking () {
       return this.$store.dispatch(
-        "bookingModule/getBookingById",
+        'bookingModule/getBookingById',
         this.$route.params.id
-      );
+      )
     },
-    nextStep() {
-      this.step++;
+    nextStep () {
+      this.step++
     },
-    previousStep() {
-      this.step--;
+    previousStep () {
+      this.step--
     },
-    setupClientsLookup() {
+    setupClientsLookup () {
       lookupApi
         .clientsLookup()
-        .then((response) => (this.clientsLookup = response));
+        .then((response) => (this.clientsLookup = response))
     },
-    setupLocationsLookup() {
+    setupLocationsLookup () {
       lookupApi
         .locationsLookup()
-        .then((response) => (this.locationsLookup = response));
+        .then((response) => (this.locationsLookup = response))
     },
-    setupAirportsLookup() {
+    setupAirportsLookup () {
       lookupApi
         .airportsLookup()
-        .then((response) => (this.airportsLookup = response));
-    },
+        .then((response) => (this.airportsLookup = response))
+    }
   },
   watch: {
     $route: {
-      async handler(to, from) {
-        if ("id" in to.params) {
-          this.editing = true;
-          this.form = await this.getBooking();
+      async handler (to, from) {
+        if ('id' in to.params) {
+          this.editing = true
+          this.form = await this.getBooking()
         } else {
-          this.editing = false;
-          this.form = getInitialForm();
-          this.step = 1;
+          this.editing = false
+          this.form = getInitialForm()
+          this.step = 1
         }
       },
-      immediate: true,
-    },
-  },
-};
+      immediate: true
+    }
+  }
+}
 </script>
 
 <style scoped></style>

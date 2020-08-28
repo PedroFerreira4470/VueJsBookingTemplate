@@ -16,16 +16,21 @@
                   class="btn btn-info"
                   v-bind:to="`/booking/edit/${booking.id}`"
                 >
-                  <font-awesome-icon :icon="['fas', 'cog']"></font-awesome-icon> Edit Booking
+                  <font-awesome-icon :icon="['fas', 'cog']"></font-awesome-icon>Edit Booking
                 </router-link>
                 <button type="button" class="btn btn-info ml-3">
                   <font-awesome-icon :icon="['fas', 'cog']"></font-awesome-icon>
                   {{booking.shipments ? "Edit" : "Create"}} Shipments
                 </button>
-                <button type="button" class="btn btn-info ml-3">
+                <router-link
+                  tag="button"
+                  type="button"
+                  class="btn btn-info ml-3"
+                  v-bind:to="`/booking/${booking.id}/cargo`"
+                >
                   <font-awesome-icon :icon="['fas', 'cog']"></font-awesome-icon>
                   {{booking.cargo ? "Edit" : "Create"}} Cargo
-                </button>
+                </router-link>
               </div>
               <div class="card-columns">
                 <div class="card text-white bg-primary">
@@ -85,36 +90,36 @@
 </template>
 
 <script>
-import loading from "../../components/Loading";
+import loading from '../../components/Loading'
 export default {
   components: {
-    loading,
+    loading
   },
   computed: {
-    booking() {
-      return this.$store.state.bookingModule.booking;
-    },
+    booking () {
+      return this.$store.state.bookingModule.booking
+    }
   },
-  created() {
+  created () {
     setTimeout(() => {
       this.$store.dispatch(
-        "bookingModule/selectedBooking",
+        'bookingModule/selectedBooking',
         this.$route.params.id
-      );
-    }, 1000);
+      )
+    }, 1000)
   },
   methods: {
-    fullName(param) {
-      return `${param.firstName} ${param.lastName}`;
+    fullName (param) {
+      return `${param.firstName} ${param.lastName}`
     },
-    getNow() {
-      return new Date();
-    },
+    getNow () {
+      return new Date()
+    }
   },
-  beforeDestroy() {
-    this.$store.dispatch("bookingModule/removeSelectedBookingAsync");
-  },
-};
+  beforeDestroy () {
+    this.$store.dispatch('bookingModule/removeSelectedBookingAsync')
+  }
+}
 </script>
 
 <style scoped>

@@ -73,8 +73,7 @@ export default {
       deleteBooking: 'deleteAsync'
     }),
     fullName (param) {
-        return `${param.firstName} ${param.lastName}`
- 
+      return `${param.firstName} ${param.lastName}`
     }
   }
 }
